@@ -1,0 +1,300 @@
+/* ------------------- */
+/* VARIABLES & RESET   */
+/* ------------------- */
+:root {
+    --font-family: 'Inter', sans-serif;
+
+    /* Thème Clair */
+    --bg-color-light: #F4F7FC;
+    --text-color-light: #333;
+    --accent-color-light: #4A90E2;
+    --container-bg-light: #FFFFFF;
+    --input-bg-light: #EFEFEF;
+    --border-color-light: #DDD;
+    --shadow-color-light: rgba(0, 0, 0, 0.1);
+
+    /* Thème Sombre */
+    --bg-color-dark: #1A1A1D;
+    --text-color-dark: #EFEFEF;
+    --accent-color-dark: #4A90E2;
+    --container-bg-dark: #2C2C34;
+    --input-bg-dark: #3A3A42;
+    --border-color-dark: #444;
+    --shadow-color-dark: rgba(0, 0, 0, 0.4);
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 5vh;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+body.dark-theme {
+    --bg-color-light: var(--bg-color-dark);
+    --text-color-light: var(--text-color-dark);
+    --container-bg-light: var(--container-bg-dark);
+    --input-bg-light: var(--input-bg-dark);
+    --border-color-light: var(--border-color-dark);
+    --shadow-color-light: var(--shadow-color-dark);
+}
+
+/* ------------------- */
+/* CONTENEUR PRINCIPAL */
+/* ------------------- */
+.app-container {
+    width: 100%;
+    max-width: 550px;
+    background-color: var(--container-bg-light);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color-light);
+    padding: 30px;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* ------------------- */
+/* HEADER              */
+/* ------------------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color-light);
+}
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color-light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-light);
+    transition: all var(--transition-speed) ease;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-color-light);
+    color: var(--accent-color-light);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ------------------- */
+/* FORMULAIRE D'AJOUT  */
+/* ------------------- */
+#add-task-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 15px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+    background-color: var(--input-bg-light);
+    color: var(--text-color-light);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+#task-input:focus {
+    outline: none;
+    border-color: var(--accent-color-light);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+#add-task-form button {
+    padding: 0 20px;
+    font-size: 1.5rem;
+    background-color: var(--accent-color-light);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform 0.1s ease;
+}
+
+#add-task-form button:hover {
+    background-color: #357ABD;
+}
+
+#add-task-form button:active, .theme-toggle:active, .filters .filter-btn:active {
+    transform: scale(0.95);
+}
+
+/* ------------------- */
+/* LISTE DES TÂCHES    */
+/* ------------------- */
+.task-list {
+    list-style: none;
+    max-height: 40vh;
+    overflow-y: auto;
+    padding-right: 10px; /* Pour la barre de défilement */
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--input-bg-light);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item.removing {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+        margin-bottom: -60px; /* Pour que l'élément suivant glisse vers le haut */
+    }
+}
+
+.task-item:last-child {
+    margin-bottom: 0;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.task-content input[type="checkbox"] {
+    /* On pourrait styliser la checkbox ici, mais pour la simplicité on garde le défaut */
+    min-width: 18px;
+    min-height: 18px;
+}
+
+.task-item.completed .task-content span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-item.completed {
+    opacity: 0.6;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #AAA;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.task-item:hover .delete-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.delete-btn:hover {
+    color: #E53935; /* Rouge pour la suppression */
+}
+
+.delete-btn svg {
+    pointer-events: none; /* Pour que le clic passe au bouton */
+}
+
+/* ------------------- */
+/* FOOTER & FILTRES    */
+/* ------------------- */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color-light);
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.filters .filter-btn {
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px;
+    font-size: 0.9rem;
+    transition: color var(--transition-speed) ease;
+}
+
+.filters .filter-btn:hover {
+    color: var(--text-color-light);
+}
+
+.filters .filter-btn.active {
+    color: var(--accent-color-light);
+    font-weight: 700;
+}
+
+/* ------------------- */
+/* RESPONSIVE          */
+/* ------------------- */
+@media (max-width: 600px) {
+    body {
+        padding-top: 0;
+    }
+    .app-container {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
