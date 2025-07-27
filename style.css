@@ -74,6 +74,31 @@ body.dark-theme {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.app-nav {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid var(--border-color-light);
+    margin-top: 20px;
+}
+
+.nav-btn {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #777;
+    transition: all var(--transition-speed) ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-btn.active {
+    color: var(--accent-color-light);
+    border-bottom-color: var(--accent-color-light);
 }
 
 .header h1 {
@@ -82,29 +107,7 @@ body.dark-theme {
     color: var(--accent-color-light);
 }
 
-.theme-toggle {
-    background: none;
-    border: 1px solid var(--border-color-light);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-color-light);
-    transition: all var(--transition-speed) ease;
-}
-
-.theme-toggle:hover {
-    border-color: var(--accent-color-light);
-    color: var(--accent-color-light);
-}
-
-.theme-toggle svg {
-    width: 20px;
-    height: 20px;
-}
+/* Suppression de .theme-toggle et ses styles associés */
 
 /* ------------------- */
 /* FORMULAIRE D'AJOUT  */
@@ -247,6 +250,221 @@ body.dark-theme {
 .delete-btn svg {
     pointer-events: none; /* Pour que le clic passe au bouton */
 }
+
+/* ------------------- */
+/* VUES (ONGLETS)      */
+/* ------------------- */
+.view {
+    display: none;
+}
+
+.view.active-view {
+    display: block;
+}
+
+/* ------------------- */
+/* SECTION PARAMÈTRES  */
+/* ------------------- */
+.settings-section {
+    margin-top: 30px;
+}
+
+.settings-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-color-light);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.setting-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Custom Select */
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+    width: 120px;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-color-light);
+    background: var(--input-bg-light);
+    border-radius: 8px;
+    border: 1px solid var(--border-color-light);
+    cursor: pointer;
+    transition: border-radius 0.1s ease-in-out;
+}
+
+.custom-select.open .custom-select__trigger {
+    border-radius: 8px 8px 0 0;
+}
+
+.custom-options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid var(--border-color-light);
+    border-top: 0;
+    background: var(--input-bg-light);
+    transition: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 0 0 8px 8px;
+}
+
+.custom-select.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    max-height: 200px; /* Limite la hauteur */
+    overflow-y: auto;  /* Ajoute une barre de défilement si nécessaire */
+}
+
+/* Style de la barre de défilement pour Webkit (Chrome, Safari) */
+.custom-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-options::-webkit-scrollbar-track {
+    background: var(--input-bg-light);
+    border-radius: 0 8px 8px 0;
+}
+
+.custom-options::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color-light);
+    border-radius: 4px;
+}
+
+.custom-option {
+    position: relative;
+    display: block;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.custom-option:hover {
+    cursor: pointer;
+    background-color: var(--accent-color-light);
+    color: #fff;
+}
+
+.arrow {
+    position: relative;
+    height: 10px;
+    width: 10px;
+}
+
+.arrow::before, .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    background-color: var(--text-color-light);
+    transition: all 0.2s;
+}
+
+.arrow::before {
+    left: -3px;
+    transform: rotate(-45deg);
+}
+
+.arrow::after {
+    left: 3px;
+    transform: rotate(45deg);
+}
+
+.custom-select.open .arrow::before {
+    transform: rotate(45deg);
+}
+
+.custom-select.open .arrow::after {
+    transform: rotate(-45deg);
+}
+
+/* Le style du Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color-light);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--accent-color-light);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 
 /* ------------------- */
 /* FOOTER & FILTRES    */

@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Taken",
+    "navSettings": "Instellingen",
+    "addTaskPlaceholder": "Voeg een nieuwe taak toe...",
+    "addTaskAria": "Taak toevoegen",
+    "tasksRemaining": "taken resterend",
+    "taskRemaining": "taak resterend",
+    "filterAll": "Alle",
+    "filterActive": "Actief",
+    "filterCompleted": "Voltooid",
+    "settingsTitle": "Instellingen",
+    "darkThemeLabel": "Donker thema",
+    "languageLabel": "Taal",
+    "deleteTaskAria": "Taak verwijderen",
+    "completeTaskAria": "Markeren als voltooid",
+    "languageName": "Nederlands"
+}

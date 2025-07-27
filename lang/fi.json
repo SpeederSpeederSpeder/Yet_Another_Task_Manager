@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Tehtävät",
+    "navSettings": "Asetukset",
+    "addTaskPlaceholder": "Lisää uusi tehtävä...",
+    "addTaskAria": "Lisää tehtävä",
+    "tasksRemaining": "tehtävää jäljellä",
+    "taskRemaining": "tehtävä jäljellä",
+    "filterAll": "Kaikki",
+    "filterActive": "Aktiiviset",
+    "filterCompleted": "Valmiit",
+    "settingsTitle": "Asetukset",
+    "darkThemeLabel": "Tumma teema",
+    "languageLabel": "Kieli",
+    "deleteTaskAria": "Poista tehtävä",
+    "completeTaskAria": "Merkitse valmiiksi",
+    "languageName": "Suomi"
+}

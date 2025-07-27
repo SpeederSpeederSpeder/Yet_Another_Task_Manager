@@ -1,0 +1,18 @@
+{
+    "appTitle": "Noch ein Task-Manager",
+    "navTasks": "Aufgaben",
+    "navSettings": "Einstellungen",
+    "addTaskPlaceholder": "Neue Aufgabe hinzufügen...",
+    "addTaskAria": "Aufgabe hinzufügen",
+    "tasksRemaining": "Aufgaben übrig",
+    "taskRemaining": "Aufgabe übrig",
+    "filterAll": "Alle",
+    "filterActive": "Aktiv",
+    "filterCompleted": "Abgeschlossen",
+    "settingsTitle": "Einstellungen",
+    "darkThemeLabel": "Dunkles Thema",
+    "languageLabel": "Sprache",
+    "deleteTaskAria": "Aufgabe löschen",
+    "completeTaskAria": "Als erledigt markieren",
+    "languageName": "Deutsch"
+}

@@ -1,0 +1,18 @@
+{
+    "appTitle": "Otro Gestor de Tareas",
+    "navTasks": "Tareas",
+    "navSettings": "Configuración",
+    "addTaskPlaceholder": "Añadir una nueva tarea...",
+    "addTaskAria": "Añadir tarea",
+    "tasksRemaining": "tareas restantes",
+    "taskRemaining": "tarea restante",
+    "filterAll": "Todas",
+    "filterActive": "Activas",
+    "filterCompleted": "Completadas",
+    "settingsTitle": "Configuración",
+    "darkThemeLabel": "Tema oscuro",
+    "languageLabel": "Idioma",
+    "deleteTaskAria": "Eliminar tarea",
+    "completeTaskAria": "Marcar como completada",
+    "languageName": "Español"
+}

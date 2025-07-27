@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Opgaver",
+    "navSettings": "Indstillinger",
+    "addTaskPlaceholder": "Tilføj en ny opgave...",
+    "addTaskAria": "Tilføj opgave",
+    "tasksRemaining": "resterende opgaver",
+    "taskRemaining": "resterende opgave",
+    "filterAll": "Alle",
+    "filterActive": "Aktive",
+    "filterCompleted": "Fuldførte",
+    "settingsTitle": "Indstillinger",
+    "darkThemeLabel": "Mørkt tema",
+    "languageLabel": "Sprog",
+    "deleteTaskAria": "Slet opgave",
+    "completeTaskAria": "Marker som fuldført",
+    "languageName": "Dansk"
+}

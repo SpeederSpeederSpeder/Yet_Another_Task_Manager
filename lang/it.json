@@ -1,0 +1,18 @@
+{
+    "appTitle": "Ancora un altro Task Manager",
+    "navTasks": "Attività",
+    "navSettings": "Impostazioni",
+    "addTaskPlaceholder": "Aggiungi una nuova attività...",
+    "addTaskAria": "Aggiungi attività",
+    "tasksRemaining": "attività rimanenti",
+    "taskRemaining": "attività rimanente",
+    "filterAll": "Tutte",
+    "filterActive": "Attive",
+    "filterCompleted": "Completate",
+    "settingsTitle": "Impostazioni",
+    "darkThemeLabel": "Tema scuro",
+    "languageLabel": "Lingua",
+    "deleteTaskAria": "Elimina attività",
+    "completeTaskAria": "Segna come completata",
+    "languageName": "Italiano"
+}

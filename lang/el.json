@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Εργασίες",
+    "navSettings": "Ρυθμίσεις",
+    "addTaskPlaceholder": "Προσθήκη νέας εργασίας...",
+    "addTaskAria": "Προσθήκη εργασίας",
+    "tasksRemaining": " εργασίες που απομένουν",
+    "taskRemaining": " εργασία που απομένει",
+    "filterAll": "Όλες",
+    "filterActive": "Ενεργές",
+    "filterCompleted": "Ολοκληρωμένες",
+    "settingsTitle": "Ρυθμίσεις",
+    "darkThemeLabel": "Σκούρο θέμα",
+    "languageLabel": "Γλώσσα",
+    "deleteTaskAria": "Διαγραφή εργασίας",
+    "completeTaskAria": "Σήμανση ως ολοκληρωμένη",
+    "languageName": "Ελληνικά"
+}

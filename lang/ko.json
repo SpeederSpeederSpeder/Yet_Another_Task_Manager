@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "작업",
+    "navSettings": "설정",
+    "addTaskPlaceholder": "새 작업 추가...",
+    "addTaskAria": "작업 추가",
+    "tasksRemaining": "개의 작업이 남았습니다",
+    "taskRemaining": "개의 작업이 남았습니다",
+    "filterAll": "모두",
+    "filterActive": "진행 중",
+    "filterCompleted": "완료됨",
+    "settingsTitle": "설정",
+    "darkThemeLabel": "다크 테마",
+    "languageLabel": "언어",
+    "deleteTaskAria": "작업 삭제",
+    "completeTaskAria": "완료로 표시",
+    "languageName": "한국어"
+}

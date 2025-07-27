@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Uppgifter",
+    "navSettings": "Inställningar",
+    "addTaskPlaceholder": "Lägg till en ny uppgift...",
+    "addTaskAria": "Lägg till uppgift",
+    "tasksRemaining": "återstående uppgifter",
+    "taskRemaining": "återstående uppgift",
+    "filterAll": "Alla",
+    "filterActive": "Aktiva",
+    "filterCompleted": "Slutförda",
+    "settingsTitle": "Inställningar",
+    "darkThemeLabel": "Mörkt tema",
+    "languageLabel": "Språk",
+    "deleteTaskAria": "Ta bort uppgift",
+    "completeTaskAria": "Markera som slutförd",
+    "languageName": "Svenska"
+}

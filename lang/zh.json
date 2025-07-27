@@ -1,0 +1,18 @@
+{
+    "appTitle": "又一个任务管理器",
+    "navTasks": "任务",
+    "navSettings": "设置",
+    "addTaskPlaceholder": "添加新任务...",
+    "addTaskAria": "添加任务",
+    "tasksRemaining": "剩余任务",
+    "taskRemaining": "剩余任务",
+    "filterAll": "全部",
+    "filterActive": "进行中",
+    "filterCompleted": "已完成",
+    "settingsTitle": "设置",
+    "darkThemeLabel": "深色主题",
+    "languageLabel": "语言",
+    "deleteTaskAria": "删除任务",
+    "completeTaskAria": "标记为已完成",
+    "languageName": "中文"
+}

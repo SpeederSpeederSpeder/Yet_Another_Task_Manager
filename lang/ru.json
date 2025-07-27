@@ -1,0 +1,18 @@
+{
+    "appTitle": "Еще один менеджер задач",
+    "navTasks": "Задачи",
+    "navSettings": "Настройки",
+    "addTaskPlaceholder": "Добавить новую задачу...",
+    "addTaskAria": "Добавить задачу",
+    "tasksRemaining": "задач осталось",
+    "taskRemaining": "задача осталась",
+    "filterAll": "Все",
+    "filterActive": "Активные",
+    "filterCompleted": "Завершенные",
+    "settingsTitle": "Настройки",
+    "darkThemeLabel": "Темная тема",
+    "languageLabel": "Язык",
+    "deleteTaskAria": "Удалить задачу",
+    "completeTaskAria": "Отметить как выполненную",
+    "languageName": "Русский"
+}

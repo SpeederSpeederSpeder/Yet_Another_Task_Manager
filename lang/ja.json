@@ -1,0 +1,18 @@
+{
+    "appTitle": "また別のタスク管理ツール",
+    "navTasks": "タスク",
+    "navSettings": "設定",
+    "addTaskPlaceholder": "新しいタスクを追加...",
+    "addTaskAria": "タスクを追加",
+    "tasksRemaining": "残りのタスク",
+    "taskRemaining": "残りのタスク",
+    "filterAll": "すべて",
+    "filterActive": "アクティブ",
+    "filterCompleted": "完了",
+    "settingsTitle": "設定",
+    "darkThemeLabel": "ダークテーマ",
+    "languageLabel": "言語",
+    "deleteTaskAria": "タスクを削除",
+    "completeTaskAria": "完了としてマーク",
+    "languageName": "日本語"
+}

@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "משימות",
+    "navSettings": "הגדרות",
+    "addTaskPlaceholder": "הוסף משימה חדשה...",
+    "addTaskAria": "הוסף משימה",
+    "tasksRemaining": "משימות שנותרו",
+    "taskRemaining": "משימה שנותרה",
+    "filterAll": "הכל",
+    "filterActive": "פעיל",
+    "filterCompleted": "הושלם",
+    "settingsTitle": "הגדרות",
+    "darkThemeLabel": "ערכת נושא כהה",
+    "languageLabel": "שפה",
+    "deleteTaskAria": "מחק משימה",
+    "completeTaskAria": "סמן כהושלם",
+    "languageName": "עברית"
+}

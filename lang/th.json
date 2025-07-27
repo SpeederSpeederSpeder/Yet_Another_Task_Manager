@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "งาน",
+    "navSettings": "การตั้งค่า",
+    "addTaskPlaceholder": "เพิ่มงานใหม่...",
+    "addTaskAria": "เพิ่มงาน",
+    "tasksRemaining": "งานที่เหลือ",
+    "taskRemaining": "งานที่เหลือ",
+    "filterAll": "ทั้งหมด",
+    "filterActive": "กำลังดำเนินการ",
+    "filterCompleted": "เสร็จสมบูรณ์",
+    "settingsTitle": "การตั้งค่า",
+    "darkThemeLabel": "ธีมมืด",
+    "languageLabel": "ภาษา",
+    "deleteTaskAria": "ลบงาน",
+    "completeTaskAria": "ทำเครื่องหมายว่าเสร็จสมบูรณ์",
+    "languageName": "ไทย"
+}

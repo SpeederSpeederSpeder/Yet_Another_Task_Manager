@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Tugas",
+    "navSettings": "Pengaturan",
+    "addTaskPlaceholder": "Tambahkan tugas baru...",
+    "addTaskAria": "Tambahkan tugas",
+    "tasksRemaining": "tugas tersisa",
+    "taskRemaining": "tugas tersisa",
+    "filterAll": "Semua",
+    "filterActive": "Aktif",
+    "filterCompleted": "Selesai",
+    "settingsTitle": "Pengaturan",
+    "darkThemeLabel": "Tema Gelap",
+    "languageLabel": "Bahasa",
+    "deleteTaskAria": "Hapus tugas",
+    "completeTaskAria": "Tandai sebagai selesai",
+    "languageName": "Bahasa Indonesia"
+}

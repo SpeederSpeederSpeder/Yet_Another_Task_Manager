@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Úkoly",
+    "navSettings": "Nastavení",
+    "addTaskPlaceholder": "Přidat nový úkol...",
+    "addTaskAria": "Přidat úkol",
+    "tasksRemaining": "zbývajících úkolů",
+    "taskRemaining": "zbývající úkol",
+    "filterAll": "Všechny",
+    "filterActive": "Aktivní",
+    "filterCompleted": "Dokončené",
+    "settingsTitle": "Nastavení",
+    "darkThemeLabel": "Tmavý motiv",
+    "languageLabel": "Jazyk",
+    "deleteTaskAria": "Smazat úkol",
+    "completeTaskAria": "Označit jako dokončené",
+    "languageName": "Čeština"
+}

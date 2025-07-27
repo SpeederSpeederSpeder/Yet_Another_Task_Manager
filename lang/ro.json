@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Sarcini",
+    "navSettings": "Setări",
+    "addTaskPlaceholder": "Adăugați o sarcină nouă...",
+    "addTaskAria": "Adăugați sarcină",
+    "tasksRemaining": "sarcini rămase",
+    "taskRemaining": "sarcină rămasă",
+    "filterAll": "Toate",
+    "filterActive": "Active",
+    "filterCompleted": "Finalizate",
+    "settingsTitle": "Setări",
+    "darkThemeLabel": "Temă întunecată",
+    "languageLabel": "Limbă",
+    "deleteTaskAria": "Ștergeți sarcina",
+    "completeTaskAria": "Marcați ca finalizată",
+    "languageName": "Română"
+}

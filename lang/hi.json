@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "कार्य",
+    "navSettings": "सेटिंग्स",
+    "addTaskPlaceholder": "एक नया कार्य जोड़ें...",
+    "addTaskAria": "कार्य जोड़ें",
+    "tasksRemaining": "कार्य शेष हैं",
+    "taskRemaining": "कार्य शेष है",
+    "filterAll": "सभी",
+    "filterActive": "सक्रिय",
+    "filterCompleted": "पूर्ण",
+    "settingsTitle": "सेटिंग्स",
+    "darkThemeLabel": "डार्क थीम",
+    "languageLabel": "भाषा",
+    "deleteTaskAria": "कार्य हटाएं",
+    "completeTaskAria": "पूर्ण के रूप में चिह्नित करें",
+    "languageName": "हिन्दी"
+}

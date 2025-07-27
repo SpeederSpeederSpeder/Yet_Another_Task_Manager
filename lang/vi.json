@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Nhiệm vụ",
+    "navSettings": "Cài đặt",
+    "addTaskPlaceholder": "Thêm nhiệm vụ mới...",
+    "addTaskAria": "Thêm nhiệm vụ",
+    "tasksRemaining": "nhiệm vụ còn lại",
+    "taskRemaining": "nhiệm vụ còn lại",
+    "filterAll": "Tất cả",
+    "filterActive": "Đang hoạt động",
+    "filterCompleted": "Đã hoàn thành",
+    "settingsTitle": "Cài đặt",
+    "darkThemeLabel": "Chủ đề tối",
+    "languageLabel": "Ngôn ngữ",
+    "deleteTaskAria": "Xóa nhiệm vụ",
+    "completeTaskAria": "Đánh dấu là đã hoàn thành",
+    "languageName": "Tiếng Việt"
+}

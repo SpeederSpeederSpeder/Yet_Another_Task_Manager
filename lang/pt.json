@@ -1,0 +1,18 @@
+{
+    "appTitle": "Mais um Gerenciador de Tarefas",
+    "navTasks": "Tarefas",
+    "navSettings": "Configurações",
+    "addTaskPlaceholder": "Adicionar uma nova tarefa...",
+    "addTaskAria": "Adicionar tarefa",
+    "tasksRemaining": "tarefas restantes",
+    "taskRemaining": "tarefa restante",
+    "filterAll": "Todas",
+    "filterActive": "Ativas",
+    "filterCompleted": "Concluídas",
+    "settingsTitle": "Configurações",
+    "darkThemeLabel": "Tema escuro",
+    "languageLabel": "Idioma",
+    "deleteTaskAria": "Excluir tarefa",
+    "completeTaskAria": "Marcar como concluída",
+    "languageName": "Português"
+}

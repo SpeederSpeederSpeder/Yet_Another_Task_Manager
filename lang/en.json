@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Tasks",
+    "navSettings": "Settings",
+    "addTaskPlaceholder": "Add a new task...",
+    "addTaskAria": "Add task",
+    "tasksRemaining": "tasks remaining",
+    "taskRemaining": "task remaining",
+    "filterAll": "All",
+    "filterActive": "Active",
+    "filterCompleted": "Completed",
+    "settingsTitle": "Settings",
+    "darkThemeLabel": "Dark Theme",
+    "languageLabel": "Language",
+    "deleteTaskAria": "Delete task",
+    "completeTaskAria": "Mark as completed",
+    "languageName": "English"
+}

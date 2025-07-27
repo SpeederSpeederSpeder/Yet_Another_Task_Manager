@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Задачи",
+    "navSettings": "Настройки",
+    "addTaskPlaceholder": "Добавете нова задача...",
+    "addTaskAria": "Добавяне на задача",
+    "tasksRemaining": "оставащи задачи",
+    "taskRemaining": "оставаща задача",
+    "filterAll": "Всички",
+    "filterActive": "Активни",
+    "filterCompleted": "Завършени",
+    "settingsTitle": "Настройки",
+    "darkThemeLabel": "Тъмна тема",
+    "languageLabel": "Език",
+    "deleteTaskAria": "Изтриване на задача",
+    "completeTaskAria": "Маркиране като завършена",
+    "languageName": "Български"
+}

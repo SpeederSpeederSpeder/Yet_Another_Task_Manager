@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Feladatok",
+    "navSettings": "Beállítások",
+    "addTaskPlaceholder": "Új feladat hozzáadása...",
+    "addTaskAria": "Feladat hozzáadása",
+    "tasksRemaining": "fennmaradó feladat",
+    "taskRemaining": "fennmaradó feladat",
+    "filterAll": "Összes",
+    "filterActive": "Aktív",
+    "filterCompleted": "Befejezett",
+    "settingsTitle": "Beállítások",
+    "darkThemeLabel": "Sötét téma",
+    "languageLabel": "Nyelv",
+    "deleteTaskAria": "Feladat törlése",
+    "completeTaskAria": "Megjelölés befejezettként",
+    "languageName": "Magyar"
+}

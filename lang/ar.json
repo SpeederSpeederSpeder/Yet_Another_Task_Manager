@@ -1,0 +1,18 @@
+{
+    "appTitle": "مدير مهام آخر",
+    "navTasks": "المهام",
+    "navSettings": "الإعدادات",
+    "addTaskPlaceholder": "أضف مهمة جديدة...",
+    "addTaskAria": "أضف مهمة",
+    "tasksRemaining": "مهام متبقية",
+    "taskRemaining": "مهمة متبقية",
+    "filterAll": "الكل",
+    "filterActive": "نشطة",
+    "filterCompleted": "مكتملة",
+    "settingsTitle": "الإعدادات",
+    "darkThemeLabel": "الوضع الداكن",
+    "languageLabel": "اللغة",
+    "deleteTaskAria": "حذف المهمة",
+    "completeTaskAria": "وضع علامة كمكتملة",
+    "languageName": "العربية"
+}

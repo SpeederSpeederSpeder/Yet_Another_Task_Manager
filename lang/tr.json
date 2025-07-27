@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Görevler",
+    "navSettings": "Ayarlar",
+    "addTaskPlaceholder": "Yeni bir görev ekle...",
+    "addTaskAria": "Görev ekle",
+    "tasksRemaining": "kalan görevler",
+    "taskRemaining": "kalan görev",
+    "filterAll": "Tümü",
+    "filterActive": "Aktif",
+    "filterCompleted": "Tamamlandı",
+    "settingsTitle": "Ayarlar",
+    "darkThemeLabel": "Koyu Tema",
+    "languageLabel": "Dil",
+    "deleteTaskAria": "Görevi sil",
+    "completeTaskAria": "Tamamlandı olarak işaretle",
+    "languageName": "Türkçe"
+}

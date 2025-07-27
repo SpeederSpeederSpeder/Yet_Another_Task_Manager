@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Завдання",
+    "navSettings": "Налаштування",
+    "addTaskPlaceholder": "Додати нове завдання...",
+    "addTaskAria": "Додати завдання",
+    "tasksRemaining": "завдань залишилося",
+    "taskRemaining": "завдання залишилося",
+    "filterAll": "Всі",
+    "filterActive": "Активні",
+    "filterCompleted": "Завершені",
+    "settingsTitle": "Налаштування",
+    "darkThemeLabel": "Темна тема",
+    "languageLabel": "Мова",
+    "deleteTaskAria": "Видалити завдання",
+    "completeTaskAria": "Позначити як виконане",
+    "languageName": "Українська"
+}
