@@ -2,25 +2,28 @@
 /* VARIABLES & RESET   */
 /* ------------------- */
 :root {
-    --font-family: 'Inter', sans-serif;
+    --font-family: 'Poppins', sans-serif;
 
     /* Thème Clair */
-    --bg-color-light: #F4F7FC;
-    --text-color-light: #333;
-    --accent-color-light: #4A90E2;
-    --container-bg-light: #FFFFFF;
-    --input-bg-light: #EFEFEF;
-    --border-color-light: #DDD;
-    --shadow-color-light: rgba(0, 0, 0, 0.1);
+    --bg-color-light: #f8f9fa;
+    --text-color-light: #212529;
+    --accent-color-light: #007bff;
+    --container-bg-light: #ffffff;
+    --input-bg-light: #f1f3f5;
+    --border-color-light: #dee2e6;
+    --shadow-color-light: rgba(0, 0, 0, 0.05);
+    --danger-color-light: #dc3545;
+
 
     /* Thème Sombre */
-    --bg-color-dark: #1A1A1D;
-    --text-color-dark: #EFEFEF;
-    --accent-color-dark: #4A90E2;
-    --container-bg-dark: #2C2C34;
-    --input-bg-dark: #3A3A42;
-    --border-color-dark: #444;
-    --shadow-color-dark: rgba(0, 0, 0, 0.4);
+    --bg-color-dark: #121212;
+    --text-color-dark: #e9ecef;
+    --accent-color-dark: #0d6efd;
+    --container-bg-dark: #1c1c1e;
+    --input-bg-dark: #2c2c2e;
+    --border-color-dark: #343a40;
+    --shadow-color-dark: rgba(0, 0, 0, 0.5);
+    --danger-color-dark: #e44d5a;
 
     /* Transitions */
     --transition-speed: 0.3s;
@@ -40,7 +43,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    padding-top: 5vh;
+    padding-top: 3rem;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
@@ -60,9 +63,9 @@ body.dark-theme {
     width: 100%;
     max-width: 550px;
     background-color: var(--container-bg-light);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow-color-light);
-    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--shadow-color-light);
+    padding: 40px;
     transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
@@ -73,7 +76,7 @@ body.dark-theme {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
@@ -102,9 +105,9 @@ body.dark-theme {
 }
 
 .header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--accent-color-light);
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text-color-light);
 }
 
 /* Suppression de .theme-toggle et ses styles associés */
@@ -114,14 +117,14 @@ body.dark-theme {
 /* ------------------- */
 #add-task-form {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #task-input {
     flex-grow: 1;
-    padding: 15px;
-    border: 1px solid var(--border-color-light);
-    border-radius: 8px 0 0 8px;
+    padding: 16px;
+    border: 2px solid var(--border-color-light);
+    border-radius: 12px 0 0 12px;
     font-size: 1rem;
     background-color: var(--input-bg-light);
     color: var(--text-color-light);
@@ -131,22 +134,22 @@ body.dark-theme {
 #task-input:focus {
     outline: none;
     border-color: var(--accent-color-light);
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
 }
 
 #add-task-form button {
-    padding: 0 20px;
-    font-size: 1.5rem;
+    padding: 0 25px;
+    font-size: 1.8rem;
     background-color: var(--accent-color-light);
     color: white;
     border: none;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 12px 12px 0;
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, transform 0.1s ease;
 }
 
 #add-task-form button:hover {
-    background-color: #357ABD;
+    background-color: #0056b3;
 }
 
 #add-task-form button:active, .theme-toggle:active, .filters .filter-btn:active {
@@ -167,10 +170,11 @@ body.dark-theme {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background-color: var(--input-bg-light);
-    border-radius: 8px;
-    margin-bottom: 10px;
+    padding: 18px 20px;
+    background-color: transparent;
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    margin-bottom: 12px;
     transition: background-color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     animation: fadeIn 0.5s ease forwards;
 }
@@ -221,7 +225,8 @@ body.dark-theme {
 
 .task-item.completed .task-content span {
     text-decoration: line-through;
-    color: #888;
+    color: var(--text-color-light);
+    opacity: 0.5;
 }
 
 .task-item.completed {
@@ -238,19 +243,55 @@ body.dark-theme {
     transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
-.task-item:hover .delete-btn {
+.task-item:hover .task-actions .delete-btn,
+.task-item:hover .task-actions .edit-btn {
     opacity: 1;
     visibility: visible;
 }
 
 .delete-btn:hover {
-    color: #E53935; /* Rouge pour la suppression */
+    color: var(--danger-color-light);
 }
 
 .delete-btn svg {
     pointer-events: none; /* Pour que le clic passe au bouton */
 }
 
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    color: #AAA;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+
+.edit-btn:hover {
+    color: var(--accent-color-light);
+}
+
+.edit-btn svg {
+    pointer-events: none;
+}
+
+.task-content .edit-input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid var(--accent-color-light);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    background-color: var(--input-bg-light);
+    color: var(--text-color-light);
+}
 /* ------------------- */
 /* VUES (ONGLETS)      */
 /* ------------------- */
