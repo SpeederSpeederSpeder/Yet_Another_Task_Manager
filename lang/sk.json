@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Úlohy",
+    "navSettings": "Nastavenia",
+    "addTaskPlaceholder": "Pridať novú úlohu...",
+    "addTaskAria": "Pridať úlohu",
+    "tasksRemaining": "úloh zostáva",
+    "taskRemaining": "úloha zostáva",
+    "filterAll": "Všetky",
+    "filterActive": "Aktívne",
+    "filterCompleted": "Dokončené",
+    "settingsTitle": "Nastavenia",
+    "darkThemeLabel": "Tmavá téma",
+    "languageLabel": "Jazyk",
+    "deleteTaskAria": "Odstrániť úlohu",
+    "completeTaskAria": "Označiť ako dokončené",
+    "languageName": "Slovenčina"
+}

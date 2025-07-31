@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Zadaci",
+    "navSettings": "Postavke",
+    "addTaskPlaceholder": "Dodaj novi zadatak...",
+    "addTaskAria": "Dodaj zadatak",
+    "tasksRemaining": "zadataka preostalo",
+    "taskRemaining": "zadatak preostao",
+    "filterAll": "Svi",
+    "filterActive": "Aktivni",
+    "filterCompleted": "Dovršeni",
+    "settingsTitle": "Postavke",
+    "darkThemeLabel": "Tamna tema",
+    "languageLabel": "Jezik",
+    "deleteTaskAria": "Izbriši zadatak",
+    "completeTaskAria": "Označi kao dovršeno",
+    "languageName": "Hrvatski"
+}

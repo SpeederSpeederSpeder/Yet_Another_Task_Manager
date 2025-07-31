@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Užduotys",
+    "navSettings": "Nustatymai",
+    "addTaskPlaceholder": "Pridėti naują užduotį...",
+    "addTaskAria": "Pridėti užduotį",
+    "tasksRemaining": "užduočių liko",
+    "taskRemaining": "užduotis liko",
+    "filterAll": "Visos",
+    "filterActive": "Aktyvios",
+    "filterCompleted": "Atliktos",
+    "settingsTitle": "Nustatymai",
+    "darkThemeLabel": "Tamsi tema",
+    "languageLabel": "Kalba",
+    "deleteTaskAria": "Ištrinti užduotį",
+    "completeTaskAria": "Pažymėti kaip atliktą",
+    "languageName": "Lietuvių"
+}

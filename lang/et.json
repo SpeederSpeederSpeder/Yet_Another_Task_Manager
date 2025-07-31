@@ -1,0 +1,18 @@
+{
+    "appTitle": "Yet Another Task Manager",
+    "navTasks": "Ülesanded",
+    "navSettings": "Seaded",
+    "addTaskPlaceholder": "Lisa uus ülesanne...",
+    "addTaskAria": "Lisa ülesanne",
+    "tasksRemaining": "ülesannet on jäänud",
+    "taskRemaining": "ülesanne on jäänud",
+    "filterAll": "Kõik",
+    "filterActive": "Aktiivsed",
+    "filterCompleted": "Lõpetatud",
+    "settingsTitle": "Seaded",
+    "darkThemeLabel": "Tume teema",
+    "languageLabel": "Keel",
+    "deleteTaskAria": "Kustuta ülesanne",
+    "completeTaskAria": "Märgi lõpetatuks",
+    "languageName": "Eesti"
+}
