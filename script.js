@@ -207,17 +207,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function populateLanguageOptions() {
         customOptions.innerHTML = '';
-        for (const langCode of availableLanguages) {
+        
+        // Fetch all language names in parallel for better performance
+        const langPromises = availableLanguages.map(async (langCode) => {
             try {
                 const response = await fetch(`lang/${langCode}.json`);
-                const langData = await response.json();
-                const option = document.createElement('span');
-                option.classList.add('custom-option');
-                option.dataset.value = langCode;
-                option.textContent = langData.languageName || langCode;
-                customOptions.appendChild(option);
-            } catch (error) { console.error(error); }
-        }
+                if (!response.ok) return { code: langCode, name: langCode };
+                const data = await response.json();
+                return { code: langCode, name: data.languageName || langCode };
+            } catch {
+                return { code: langCode, name: langCode };
+            }
+        });
+
+        const langResults = await Promise.all(langPromises);
+
+        langResults.forEach(lang => {
+            const option = document.createElement('span');
+            option.classList.add('custom-option');
+            option.dataset.value = lang.code;
+            option.textContent = lang.name;
+            customOptions.appendChild(option);
+        });
+
         updateSelectTriggerText(currentLang);
     }
 

@@ -79,7 +79,33 @@ body.dark-theme .app-container {
     padding: 32px;
     transition: all var(--transition-speed) ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Ensure dropdown is not cut off */
+}
+
+/* Custom Scrollbar for the dropdown */
+.custom-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-options::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-options::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+body.dark-theme .custom-options::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.custom-options::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color-light);
+}
+
+body.dark-theme .custom-options::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color-dark);
 }
 
 /* ------------------- */
