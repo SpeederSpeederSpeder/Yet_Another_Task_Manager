@@ -14,5 +14,9 @@
     "languageLabel": "Langue",
     "deleteTaskAria": "Supprimer la tâche",
     "completeTaskAria": "Marquer comme complétée",
-    "languageName": "Français"
+    "languageName": "Français",
+    "emptyStateText": "Aucune tâche pour le moment !",
+    "noFilterResults": "Aucune tâche ne correspond à ce filtre.",
+    "clearCompleted": "Effacer terminées",
+    "editTaskAria": "Modifier la tâche"
 }

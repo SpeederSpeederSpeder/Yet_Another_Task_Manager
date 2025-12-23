@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
     const taskCounter = document.getElementById('task-counter');
+    const progressBar = document.getElementById('progress-bar');
+    const emptyState = document.getElementById('empty-state');
+    const clearCompletedBtn = document.getElementById('clear-completed');
     const filterContainer = document.querySelector('.filters');
     const themeSwitch = document.getElementById('theme-switch');
     const navContainer = document.querySelector('.app-nav');
@@ -34,29 +37,54 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function saveTasks() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
+        updateProgress();
+    }
+
+    /**
+     * Met à jour la barre de progression.
+     */
+    function updateProgress() {
+        if (tasks.length === 0) {
+            progressBar.style.width = '0%';
+            return;
+        }
+        const completedCount = tasks.filter(t => t.completed).length;
+        const progress = (completedCount / tasks.length) * 100;
+        progressBar.style.width = `${progress}%`;
     }
 
     /**
      * Affiche les tâches dans le DOM en fonction du filtre actif.
      */
     function renderTasks() {
-        taskList.innerHTML = ''; // Vide la liste avant de la reconstruire
-        updateTaskCount();
-
+        taskList.innerHTML = ''; 
+        
         const filteredTasks = tasks.filter(task => {
             if (currentFilter === 'active') return !task.completed;
             if (currentFilter === 'completed') return task.completed;
-            return true; // 'all'
+            return true;
         });
+
+        if (tasks.length === 0) {
+            emptyState.style.display = 'flex';
+            emptyState.querySelector('p').dataset.i18nKey = 'emptyStateText';
+            emptyState.querySelector('p').textContent = translations.emptyStateText || 'No tasks yet!';
+            taskList.style.display = 'none';
+        } else if (filteredTasks.length === 0) {
+            emptyState.style.display = 'flex';
+            emptyState.querySelector('p').dataset.i18nKey = 'noFilterResults';
+            emptyState.querySelector('p').textContent = translations.noFilterResults || 'No tasks match this filter.';
+            taskList.style.display = 'none';
+        } else {
+            emptyState.style.display = 'none';
+            taskList.style.display = 'block';
+        }
 
         filteredTasks.forEach(task => {
             const taskElement = document.createElement('li');
             taskElement.classList.add('task-item');
+            if (task.completed) taskElement.classList.add('completed');
             taskElement.dataset.id = task.id;
-
-            if (task.completed) {
-                taskElement.classList.add('completed');
-            }
 
             taskElement.innerHTML = `
                 <div class="task-content">
@@ -64,75 +92,51 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>${task.text}</span>
                 </div>
                 <div class="task-actions">
-                    <button class="edit-btn" aria-label="${translations.editTaskAria || 'Edit task'}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    <button class="action-btn edit-btn" aria-label="${translations.editTaskAria || 'Edit task'}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                     </button>
-                    <button class="delete-btn" aria-label="${translations.deleteTaskAria || 'Delete task'}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                    <button class="action-btn delete-btn" aria-label="${translations.deleteTaskAria || 'Delete task'}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                     </button>
                 </div>
             `;
             taskList.appendChild(taskElement);
         });
+
+        updateTaskCount();
+        updateProgress();
     }
 
     /**
      * Ajoute une nouvelle tâche.
-     * @param {string} text - Le contenu de la tâche.
      */
     function addTask(text) {
         if (text.trim() === '') return;
-
-        const newTask = {
-            id: Date.now(),
-            text: text,
-            completed: false
-        };
-
+        const newTask = { id: Date.now(), text: text, completed: false };
         tasks.push(newTask);
         saveTasks();
         renderTasks();
     }
 
-    /**
-     * Bascule l'état de complétion d'une tâche.
-     * @param {number} id - L'ID de la tâche.
-     */
     function toggleTask(id) {
-        tasks = tasks.map(task =>
-            task.id === id ? { ...task, completed: !task.completed } : task
-        );
+        tasks = tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task);
         saveTasks();
         renderTasks();
     }
 
-    /**
-     * Supprime une tâche.
-     * @param {number} id - L'ID de la tâche.
-     */
     function deleteTask(id) {
         tasks = tasks.filter(task => task.id !== id);
         saveTasks();
         renderTasks();
     }
 
-    /**
-     * Met à jour le texte d'une tâche.
-     * @param {number} id - L'ID de la tâche.
-     * @param {string} newText - Le nouveau texte de la tâche.
-     */
     function editTask(id, newText) {
-        tasks = tasks.map(task =>
-            task.id === id ? { ...task, text: newText } : task
-        );
+        if (newText.trim() === '') return;
+        tasks = tasks.map(task => task.id === id ? { ...task, text: newText } : task);
         saveTasks();
         renderTasks();
     }
 
-    /**
-     * Active le mode édition pour une tâche.
-     * @param {HTMLElement} taskElement - L'élément li de la tâche.
-     */
     function enterEditMode(taskElement) {
         const span = taskElement.querySelector('.task-content span');
         const currentText = span.textContent;
@@ -141,28 +145,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const input = document.createElement('input');
         input.type = 'text';
         input.value = currentText;
-        input.classList.add('edit-input');
+        input.classList.add('task-input'); // Reuse some styles
+        input.style.padding = '4px 8px';
+        input.style.fontSize = '0.95rem';
 
         input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                editTask(taskId, input.value);
-            } else if (e.key === 'Escape') {
-                renderTasks(); // Annule la modification
-            }
+            if (e.key === 'Enter') editTask(taskId, input.value);
+            else if (e.key === 'Escape') renderTasks();
         });
 
         span.replaceWith(input);
         input.focus();
         input.select();
-
-        // Le listener d'événement 'blur' a été supprimé pour éviter les conflits
-        // avec d'autres actions (comme la suppression). La sauvegarde se fait
-        // désormais uniquement avec la touche 'Entrée', et l'annulation avec 'Échap'.
     }
 
-    /**
-     * Met à jour le compteur de tâches actives.
-     */
     function updateTaskCount() {
         const activeTasks = tasks.filter(task => !task.completed).length;
         const taskString = (
@@ -170,11 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
             || (activeTasks === 1 ? 'task remaining' : 'tasks remaining')
         );
         taskCounter.textContent = `${activeTasks} ${taskString}`;
+        
+        // Hide/Show Clear Completed button
+        const hasCompleted = tasks.some(t => t.completed);
+        clearCompletedBtn.style.display = hasCompleted ? 'block' : 'none';
     }
 
-    /**
-     * Applique le thème (clair ou sombre).
-     */
     function applyTheme() {
         if (currentTheme === 'dark') {
             document.body.classList.add('dark-theme');
@@ -185,18 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Bascule le thème et sauvegarde la préférence.
-     */
     function toggleTheme() {
         currentTheme = currentTheme === 'light' ? 'dark' : 'light';
         localStorage.setItem('theme', currentTheme);
         applyTheme();
     }
 
-    /**
-     * Applique la langue sélectionnée à l'interface.
-     */
     function applyLanguage() {
         document.querySelectorAll('[data-i18n-key]').forEach(element => {
             const key = element.dataset.i18nKey;
@@ -211,15 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        updateTaskCount();
         renderTasks();
     }
 
-    /**
-     * Charge et peuple les options de langue.
-     */
     async function populateLanguageOptions() {
-        customOptions.innerHTML = ''; // Vide les options existantes
+        customOptions.innerHTML = '';
         for (const langCode of availableLanguages) {
             try {
                 const response = await fetch(`lang/${langCode}.json`);
@@ -229,18 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 option.dataset.value = langCode;
                 option.textContent = langData.languageName || langCode;
                 customOptions.appendChild(option);
-            } catch (error) {
-                console.error(`Failed to load language data for ${langCode}:`, error);
-            }
+            } catch (error) { console.error(error); }
         }
-        // Mettre à jour le texte du déclencheur après avoir peuplé les options
         updateSelectTriggerText(currentLang);
     }
 
-    /**
-     * Met à jour le texte du déclencheur du sélecteur de langue.
-     * @param {string} lang - Le code de la langue.
-     */
     function updateSelectTriggerText(lang) {
         const selectedOption = document.querySelector(`.custom-option[data-value="${lang}"]`);
         if (selectedOption) {
@@ -248,158 +228,94 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Change la langue et sauvegarde la préférence.
-     * @param {string} lang - Le code de la langue.
-     */
     async function setLanguage(lang) {
-        if (!availableLanguages.includes(lang)) {
-            lang = 'en'; // Langue par défaut
-        }
+        if (!availableLanguages.includes(lang)) lang = 'en';
         currentLang = lang;
         localStorage.setItem('lang', lang);
-
         try {
             const response = await fetch(`lang/${lang}.json`);
-            if (!response.ok) throw new Error(`Could not fetch lang/${lang}.json`);
             translations = await response.json();
             applyLanguage();
             updateSelectTriggerText(lang);
-        } catch (error) {
-            console.error("Failed to load language file:", error);
-            if (lang !== 'en') {
-                await setLanguage('en');
-            }
-        }
+        } catch (error) { console.error(error); }
     }
 
-    /**
-     * Change la vue affichée (Tâches ou Paramètres).
-     * @param {string} viewId - L'ID de la vue à afficher.
-     */
     function switchView(viewId) {
-        // Masquer toutes les vues
-        views.forEach(view => {
-            view.classList.remove('active-view');
-        });
-
-        // Afficher la vue sélectionnée
+        views.forEach(view => view.classList.remove('active-view'));
         const activeView = document.getElementById(viewId);
-        if (activeView) {
-            activeView.classList.add('active-view');
-        }
-
-        // Mettre à jour l'état actif des boutons de navigation
+        if (activeView) activeView.classList.add('active-view');
         document.querySelectorAll('.app-nav .nav-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.view === viewId) {
-                btn.classList.add('active');
-            }
+            btn.classList.toggle('active', btn.dataset.view === viewId);
         });
     }
-
 
     // ------------------- //
     // ÉCOUTEURS D'ÉVÉNEMENTS //
     // ------------------- //
-
-    // Ajout de tâche via le formulaire
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
         addTask(taskInput.value);
         taskInput.value = '';
-        taskInput.focus();
     });
 
-    // Gestion des clics sur la liste (complétion et suppression)
     taskList.addEventListener('click', (e) => {
         const taskElement = e.target.closest('.task-item');
         if (!taskElement) return;
-
         const taskId = Number(taskElement.dataset.id);
 
-        // Clic sur le bouton de suppression
         if (e.target.closest('.delete-btn')) {
-            const taskElementToRemove = e.target.closest('.task-item');
-            taskElementToRemove.classList.add('removing');
-            
-            taskElementToRemove.addEventListener('animationend', () => {
-                deleteTask(taskId);
-            });
-        }
-        // Clic sur le bouton de modification
-        else if (e.target.closest('.edit-btn')) {
+            taskElement.style.opacity = '0';
+            taskElement.style.transform = 'translateX(20px)';
+            setTimeout(() => deleteTask(taskId), 300);
+        } else if (e.target.closest('.edit-btn')) {
             enterEditMode(taskElement);
-        }
-        // Clic sur la tâche ou la checkbox
-        else {
+        } else {
             toggleTask(taskId);
         }
     });
 
-    // Gestion des clics sur les filtres
+    clearCompletedBtn.addEventListener('click', () => {
+        tasks = tasks.filter(t => !t.completed);
+        saveTasks();
+        renderTasks();
+    });
+
     filterContainer.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON') {
-            const filter = e.target.dataset.filter;
-            if (filter) {
-                currentFilter = filter;
-                document.querySelectorAll('.filters .filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                e.target.classList.add('active');
-                renderTasks();
-            }
+        const btn = e.target.closest('.filter-btn');
+        if (btn) {
+            currentFilter = btn.dataset.filter;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+            renderTasks();
         }
     });
 
-    // Gestion du changement de thème
     themeSwitch.addEventListener('change', toggleTheme);
-
-    // Gestion de la navigation par onglets
     navContainer.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON') {
-            const viewId = e.target.dataset.view;
-            if (viewId) {
-                switchView(viewId);
-            }
-        }
+        const btn = e.target.closest('.nav-btn');
+        if (btn) switchView(btn.dataset.view);
     });
 
-    // Gestion du sélecteur de langue personnalisé
-    customSelectTrigger.addEventListener('click', () => {
-        customSelect.classList.toggle('open');
-    });
-
+    customSelectTrigger.addEventListener('click', () => customSelect.classList.toggle('open'));
     customOptions.addEventListener('click', (e) => {
-        if (e.target.classList.contains('custom-option')) {
-            const lang = e.target.dataset.value;
+        const opt = e.target.closest('.custom-option');
+        if (opt) {
             customSelect.classList.remove('open');
-            requestAnimationFrame(() => {
-                setLanguage(lang);
-            });
+            setLanguage(opt.dataset.value);
         }
     });
 
     window.addEventListener('click', (e) => {
-        if (!customSelect.contains(e.target)) {
-            customSelect.classList.remove('open');
-        }
+        if (!customSelect.contains(e.target)) customSelect.classList.remove('open');
     });
 
-    // Initialisation
     async function initialize() {
         try {
             const response = await fetch('lang/languages.json');
             availableLanguages = await response.json();
-        } catch (error) {
-            console.error('Could not load languages.json', error);
-            availableLanguages = ['en']; // Fallback to English
-        }
-
+        } catch { availableLanguages = ['en']; }
         await populateLanguageOptions();
         await setLanguage(currentLang);
         applyTheme();
-        // renderTasks() est déjà appelé dans applyLanguage
     }
 
     initialize();

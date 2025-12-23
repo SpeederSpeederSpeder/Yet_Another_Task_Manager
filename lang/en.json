@@ -14,5 +14,9 @@
     "languageLabel": "Language",
     "deleteTaskAria": "Delete task",
     "completeTaskAria": "Mark as completed",
-    "languageName": "English"
+    "languageName": "English",
+    "emptyStateText": "No tasks yet!",
+    "noFilterResults": "No tasks found here.",
+    "clearCompleted": "Clear completed",
+    "editTaskAria": "Edit task"
 }
